@@ -1,0 +1,181 @@
+---
+title: 'Comprehensive Guide: Creating EC2 Instances in AWS Step-by-Step'
+publishedAt: '2023-05-20'
+description: "AWS EC2 stands for Amazon Elastic Compute Cloud. This is a cloud computing service provided by Amazon Web Services (AWS). EC2 allows you to lease computing capacity within the Amazon cloud environment. Using EC2, you can launch and manage virtual instances in Amazon data centers."
+tags: 'ubuntu,aws'
+---
+
+EC2 provides a great deal of flexibility, allowing you to choose the instance type that fits your application needs. You can select instance types with various combinations of compute, memory, storage, and network power. Additionally, you can manage the instance lifecycle, including initializing, configuring, and stopping or destroying the instance when you are done using it.
+
+You can also choose the geographic location where your EC2 instances run, so as to minimize latency and meet applicable data regulatory requirements. EC2 supports a variety of operating systems, including Linux, Windows, and macOS.
+
+EC2 also includes additional features such as persistent storage with Amazon Elastic Block Store (EBS), secure networking with Virtual Private Cloud (VPC), and automatic scaling capabilities using Auto Scaling.
+
+## Creating EC2 in the AWS Console
+Before starting, make sure you have created an [aws.amazon.com](https://aws.amazon.com/) account, if so, we can start learning now.
+
+### Step 1 - Search for EC2 Services in the AWS Console
+
+![Step 1](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_1.png?updatedAt=1684589510578)
+
+### Step 2 - Instance Dashboard page
+There are several menu options to view Instance activity, here I have 3 active Instances, you can click on the **instance** menu to view details.
+
+![Step 2](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_2.png?updatedAt=1684589515796)
+
+### Step 3 - Instance List Page
+You can see in the image, that there is an orange **Launch Instances** button, which you can click to create a new instance.
+
+![Step 3](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_3.png?updatedAt=1684589515796)
+
+### Step 4 - Give Instance Name
+You are free to name the Instance as you wish.
+
+![Step 4](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_4.png?updatedAt=1684589515796)
+
+### Step 5 - Operating System (OS)
+Here I chose the Ubuntu operating system category, after that below you will be given a choice of several Ubuntu versions, I chose **Ubuntu Server 22.04 LTS** for no particular reason, it's just that this version is **free** provided by AWS.
+
+![Step 5](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_5.png?updatedAt=1684589515796)
+
+### Step 6 - Instance Type
+There are many choices of instance types provided by AWS, just like before I still chose the **free** instance type, namely **t2.micro**.
+
+![Step 6](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_6.png?updatedAt=1684589515796)
+
+### Step 7 - Key Pair
+A key pair in the context of AWS EC2 is a cryptographic key pair consisting of a public key and a private key. The public key is used to encrypt data, while the private key is used to decrypt data encrypted with the appropriate public key.
+
+![Step 7](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_7.png?updatedAt=1684589515796)
+
+In the EC2 context, key pairs are used to secure access to EC2 instances. When you launch your EC2 instance, you can generate or import key pairs. If you generate a key pair, AWS will generate a public and private key pair for you. The private key will be downloaded to your local computer, while the public key will be associated with the EC2 instance.
+
+This private key is very important and should be properly guarded, as it provides access to your EC2 instance. If someone has access to the private key, they can log into your EC2 instance.
+
+Key pairs are used in several scenarios in AWS EC2. Some common uses include:
+
+1. Accessing the EC2 instance via SSH: In this case, the private key is used to authenticate when you connect to the EC2 instance via the Secure Shell (SSH) protocol.
+
+2. Accessing EC2 instances via RDP (Remote Desktop Protocol): If you are using an EC2 instance with a Windows operating system, a key pair can be used to gain access to the instance via RDP.
+
+3. Manage permissions to EC2 instances: Key pairs are also used to manage access permissions to EC2 instances. You can configure EC2 security groups to restrict access based on specific public keys.
+
+In order to keep your EC2 instance secure, it is very important to keep the private key safe and not share it with insufficient parties.
+
+### Step 8 - Creating a Key Pair
+Here you are free to give a key pair name, I will name my key pair **example-key** after that you click the **Create key pair** button.
+
+![Step 8](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_8.png?updatedAt=1684589515796)
+
+### Step 9 - Download and Save Key Pair
+After you click the **Create key pair** button, the browser will automatically download your key pair and also make sure you store the key pair safely without giving it to anyone else.
+
+![Step 9](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_9.png?updatedAt=1684589515796)
+
+### Step 10 - Network Settings
+I assume you here don't have a Security Group on AWS, so you have to create one here and you just follow me as shown.
+[x] Create a security group,
+[x] Allow SSH,
+[x] Allow HTTPS traffic from internet,
+[x] Allow HTTP traffic from internet.
+
+![Step 10](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_10.png?updatedAt=1684589515796)
+
+### Step 11 - Storage
+Because my project is small, I only need 8 GB for storage on my server and I think that's big enough.
+
+![Step 11](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_11.png?updatedAt=1684589515796)
+
+### Step 12 - Check Again (Important)
+Double check your instance specifications and configuration before clicking on the **Launch Instance** button, especially the Operating System, Instance Type and storage sections. I strongly advise you to choose the **free** first, because I'm sure those of you who are reading this article are in the process of learning, so don't get billed by AWS. and don't worry if in the future the server starts to feel heavy, you can scale up the instance specifications.
+
+![Step 12](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_12.png?updatedAt=1684589515796)
+
+### Step 13 - Waiting for the instance creation process
+Don't worry, you don't have to wait long, usually the process takes less than 1 minute.
+
+![Step 13](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_13.png?updatedAt=1684589515796)
+
+### Step 14 - Instance Creation Process Completed
+You can click on the blue instance id to see the instance.
+
+![Step 14](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_14.png?updatedAt=1684589515796)
+
+### Step 15 - Instance State (Pending)
+If the instance state is still pending, you can wait again, usually the creation process takes less than 1 minute.
+
+![Step 15](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_15.png?updatedAt=1684589515796)
+
+### Step 16 - Instance State (Running)
+If the instance state is **Running**, it indicates that your instance is running.
+
+![Step 16](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_16.png?updatedAt=1684589515796)
+
+### Step 17 - Instance Information
+To view all Instance information you can click on the Instance id so that a page like this appears and to enter the server you can click the **Connect** button.
+
+![Step 17](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_17.png?updatedAt=1684589515796)
+
+![Step 18](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_18.png?updatedAt=1684589515796)
+
+### Final - You Login into Ubuntu Server Now
+
+![Step 19](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_19.png?updatedAt=1684589515796)
+
+## How to Connect With Instances Via SSH
+
+Previously you have successfully connected directly to Ubuntu Server using the AWS Console with a browser and now we will try to connect Ubuntu Server using SSH via the terminal on our computer. Before starting make sure the terminal on your PC can use ssh, for Windows users I highly recommend you use [Powershell](https://learn.microsoft.com/en-us/powershell/), but if you use MAC OS / Linux you can follow the step by step below.
+
+### Step 1
+Make sure you are in the location of the folder where your key pair is stored.
+
+![Step 20](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_20.png?updatedAt=1684589515796)
+
+### Step 2
+Execute the following command:
+
+```bash
+ssh -i example-key.pem ubuntu@18.136.120.248
+```
+
+**example-key.pem** is the name of your key pair file, **18.136.120.248** is the public ip address, you can check your IP address in the detailed Instance information.
+
+![Step 21](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_21.png?updatedAt=1684589515796)
+
+### Step 3 
+Type the command yes if it appears like this.
+
+![Step 22](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_22.png?updatedAt=1684589515796)
+
+### Step 4
+Don't panic if your terminal displays information like this, this information appears when you use SSH commands with a private key file (.pem or .ppk) that has too weak access permissions. This message indicates that your private key file access permissions are open to other users on the system.
+
+To resolve this warning, you must fix the access permissions of your private key file so that it is read only by the owner (that is you) and not accessible by other users. On Linux or macOS systems, you can use the chmod command to set file access permissions, such as ``chmod 600 key.pem`` to grant read permissions only to the file owner.
+
+"600" permission mode means that the file can only be read and written by the owner of the file. There are no access permissions for other groups or users on the system.
+
+![Step 23](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_23.png?updatedAt=1684589515796)
+
+So you can type the following command:
+
+```bash
+chmod 600 example-key.pem
+```
+
+![Step 24](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_24.png?updatedAt=1684589515796)
+
+Then you can re-type the following command:
+
+```bash
+ssh -i example-key.pem ubuntu@18.136.120.248
+```
+
+![Step 25](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_25.png?updatedAt=1684589515796)
+
+You are now connected to the Instance.
+
+![Step 26](https://ik.imagekit.io/n1hqrcegw/articles/comprehensive-guide-creating-ec2-instances-aws-step-by-step/Frame_26.png?updatedAt=1684589515796)
+
+## In conclusion
+
+Using EC2, you can easily configure and manage processing resources in the Amazon cloud, allowing you to run highly scalable, cost-efficient applications.
