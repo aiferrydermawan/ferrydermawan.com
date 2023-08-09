@@ -1,0 +1,72 @@
+---
+title: "Step-by-Step Tutorial: Converting AWS S3 Object Permissions to Public Access"
+publishedAt: '2023-08-09'
+description: "Follow the step-by-step guide to convert AWS S3 object permissions to public access. Learn how to easily manage object accessibility on Amazon S3 cloud storage service and understand the process."
+tags: 'aws'
+---
+
+![image not accessible](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%208.webp?updatedAt=1691567264297)
+
+Amazon Simple Storage Service (S3) is a versatile and widely-used cloud storage solution that offers highly scalable object storage infrastructure. While S3 is secure by default, there may be scenarios where you need to make specific objects within your S3 buckets public. In this step-by-step guide, we'll walk you through the process of converting AWS S3 object permissions to public access.
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+1. An AWS account with appropriate permissions to access and modify S3 resources.
+2. Basic understanding of AWS S3 concepts and the AWS Management Console.
+3. prepare the file whose permissions you want to change to public
+
+## Step 1: Access AWS Management Console
+
+1. Log in to your AWS account.
+2. Navigate to the AWS Management Console.
+
+## Step 2: Locate and Select the S3 Bucket
+
+1. In the AWS Management Console, search for and select the 'S3' service.
+2. From the list of available buckets, click on the desired bucket that contains the object you want to make public.
+
+![bucket lists](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%205.webp?updatedAt=1691567264297)
+
+## Step 3: Navigate to Permissions
+
+1. Enter the bucket, select the permissions menu under the bucket title.
+
+![S3 bucket lists](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%206.webp?updatedAt=1691567264297)
+
+2. Scroll down to find the title "Object Ownership", then click edit.
+
+![S3 - Object Ownership](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%2018.webp?updatedAt=1691568565222)
+
+3. You can follow my configuration as shown below and save.
+
+![S3 - Object Ownership - Edit](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%2012.webp?updatedAt=1691568565222)
+
+## Step 4: Turn off all blocks
+
+1. After you make an update on the object Ownership page, you will automatically be redirected to the permissions page again, you just click edit on "Block public access (bucket settings)".
+
+![S3 - Permission Page](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%2013.webp?updatedAt=1691568565222)
+
+2. You turn off all the blocks as shown, then save.
+
+![S3 - Permission Page - Block public access](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%2014.webp?updatedAt=1691568565222)
+
+3. Now check and make sure the status on your access bucket is "Objects can be public".
+
+![Status Bucket](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%2015.webp?updatedAt=1691568565222)
+
+## Step 8: Test Public Access
+
+1. You select the file that you want to change its status to public, then select > Actions > Make public using ACL (If it's still disabled/locked, it means you haven't followed the step by step I gave earlier correctly).
+
+![S3 - Object lists](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%2016.webp?updatedAt=1691568565222)
+
+2. Then you reopen your file / image again.
+
+![S3 File](https://ik.imagekit.io/n1hqrcegw/articles/step-by-step-tutorial-converting-aws-s3-object-permissions-to-public-access/Frame%2017.webp?updatedAt=1691568565222)
+
+## Conclusion
+
+By following this step-by-step guide, you have successfully converted the AWS S3 object permissions to public access. Remember that making objects public should be done with caution, as it can expose sensitive information to the public. Always ensure that you have a clear understanding of the implications of making objects public before applying these changes to your AWS S3 resources.
