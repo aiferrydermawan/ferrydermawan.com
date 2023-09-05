@@ -22,9 +22,12 @@ export default function Nav() {
                     <li key={index}>
                         <Link className={firstPathName == item.href ? 
                             'text-slate-900 underline underline-offset-[-2px] decoration-2 decoration-slate-300 decoration-skip-ink font-medium' : 
-                            'text-slate-900 underline underline-offset-[-2px] decoration-2 decoration-slate-300 decoration-skip-ink font-medium opacity-50 hover:opacity-100'}  href={item.href}>{item.label}</Link>
+                            'text-slate-900 underline underline-offset-[-2px] decoration-2 decoration-slate-300 decoration-skip-ink font-medium opacity-70 hover:opacity-100'}  href={item.href}>{item.label}</Link>
                     </li>
                 )}
+                <li>
+                    <a target="_blank" className="text-slate-900 underline underline-offset-[-2px] decoration-2 decoration-slate-300 decoration-skip-ink font-medium opacity-70 hover:opacity-100" href="https://github.com/sponsors/aiferrydermawan">Sponsor</a>
+                </li>
             </ul>
         </nav>
     )
