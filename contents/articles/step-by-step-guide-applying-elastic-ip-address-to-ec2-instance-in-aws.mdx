@@ -1,0 +1,82 @@
+---
+title: "Step-by-Step Guide: Applying Elastic IP Address to EC2 Instance in AWS"
+publishedAt: '2023-09-15'
+description: "Find an easy way to apply an Elastic IP address to your EC2 instance in AWS. With this step-by-step guide, you can keep a static IP address for your instance, enhancing the reliability and efficiency of managing your cloud services."
+tags: 'aws'
+---
+
+If you have been using Amazon Web Services (AWS) to run EC2 instances, you may be aware that the instance's IP address can change every time you stop and start it. However, there is a way to keep a static IP address for your instance by using Elastic IP. In this guide, we will help you understand and apply an Elastic IP address to your EC2 instance in AWS.
+
+## What is Elastic IP?
+
+Elastic IP is a service that allows you to have a fixed IP address that you can configure and manage independently of your EC2 instance. This is very useful in avoiding the frequent IP address changes that occur when you stop and start your EC2 instance.
+
+### Step 1: Log in to the AWS Console
+
+The first step is to log in to the AWS Management Console using your AWS account. If you don't have an account, you will need to sign up for one.
+
+### Step 2: Open the EC2 Service
+
+![Step 2.1](https://ik.imagekit.io/n1hqrcegw/articles/Image-1.webp?updatedAt=1695379574066)
+
+After logging in, open the EC2 service from your AWS console. This will take you to the EC2 dashboard.
+
+### Step 3: Navigate to "Elastic IPs"
+
+![Step 3.1](https://ik.imagekit.io/n1hqrcegw/articles/Image-2.webp?updatedAt=1695379574035)
+
+In the EC2 dashboard, in the navigation panel on the left, find and click on the "Elastic IPs" option under the "Network & Security" section.
+
+### Step 4: Select "Allocate Elastic IP Address"
+
+![Step 4.1](https://ik.imagekit.io/n1hqrcegw/articles/Image-3.webp?updatedAt=1695379574029)
+
+On the "Elastic IPs" page, click the "Allocate New Address" button. This will allocate a new IP address that you will use as an Elastic IP.
+
+![Step 4.2](https://ik.imagekit.io/n1hqrcegw/articles/Image-4.webp?updatedAt=1695379574013)
+
+There's no need to configure anything here; just click the "Allocate" button.
+
+### Step 5: Specify the "Public IP" to Allocate
+
+![Step 5.1](https://ik.imagekit.io/n1hqrcegw/articles/Image-5.webp?updatedAt=1695379574063)
+
+After clicking "Allocate New Address," AWS will generate a new IP address for you. Make sure to click on the newly generated IP address to select it.
+
+![Step 5.2](https://ik.imagekit.io/n1hqrcegw/articles/Image-6.webp?updatedAt=1695379574000)
+
+Once the IP is created, you can give it a name to avoid confusion with other IPs.
+
+### Step 6: Click "Actions" and Choose "Associate IP Address"
+
+![Step 6.1](https://ik.imagekit.io/n1hqrcegw/articles/Image-7.webp?updatedAt=1695379574037)
+
+At the top of the screen, click "Actions" and select "Associate IP Address" from the dropdown menu.
+
+### Step 7: Select the EC2 Instance to Associate with the Elastic IP
+
+![Step 7.1](https://ik.imagekit.io/n1hqrcegw/articles/Image-9.webp?updatedAt=1695379573988)
+
+In the "Associate Elastic IP address" window, choose the EC2 instance you want to assign the Elastic IP address to. Then, click "Associate."
+
+![Step 7.2](https://ik.imagekit.io/n1hqrcegw/articles/Image-10.webp?updatedAt=1695379573988)
+
+Afterward, you can simply click the "Associate" button.
+
+### Step 8: Done!
+
+The Elastic IP is now successfully linked to your EC2 instance. You can confirm the connection by running a connection test to the new IP address.
+
+![Step 8.1](https://ik.imagekit.io/n1hqrcegw/articles/Image-8.webp?updatedAt=1695379573988)
+
+The image above shows an instance that has not been connected to an Elastic IP.
+
+![Step 8.2](https://ik.imagekit.io/n1hqrcegw/articles/Image-11.webp?updatedAt=1695379573988)
+
+And this is the image after you have connected the instance to the Elastic IP.
+
+## Conclusion
+
+In this guide, you have learned how to apply an Elastic IP address to your EC2 instance in AWS. With Elastic IP, you can maintain a fixed IP address for your instance, avoiding unwanted IP address changes. This is a crucial step in managing your EC2 instances more efficiently and reliably.
+
+If you have followed the steps above correctly, you now have an Elastic IP address attached to your EC2 instance. Congratulations on better managing your AWS resources!
