@@ -1,0 +1,106 @@
+---
+title: "Boost Your Productivity: A Comprehensive Guide to Setting up PhpStorm for Automatic Execution of Laravel Pint and Prettier on Save"
+publishedAt: '2024-01-15'
+description: "Discover the ultimate productivity boost! Follow our step-by-step guide on configuring PhpStorm to seamlessly execute Laravel Pint and Prettier automatically every time you save. Enhance your development workflow with this comprehensive tutorial for optimized coding efficiency."
+tags: 'jetbrains,phpstorm,php,laravel,laravel pint,prettier'
+---
+
+## Step 1: Open Terminal to Begin
+
+Start by opening your terminal. This is the first step towards enhancing the code quality of your Laravel project.
+
+## Step 2: Navigate to Laravel Project Directory
+
+Navigate to your Laravel project directory using terminal commands. Make sure you are in the root of the project before proceeding.
+
+## Step 3: Install Laravel Pint
+
+Use the command `composer require laravel/pint --dev` to install Laravel Pint. This tool will assist you in maintaining code style according to Laravel standards.
+
+```bash
+composer require laravel/pint --dev
+```
+
+## Step 4: Install Prettier for Code Harmony
+
+Next, install Prettier and related plugins using the command `npm install --save-dev prettier prettier-plugin-blade prettier-plugin-tailwindcss`. Prettier will ensure consistent and readable code formatting.
+
+```bash
+npm install --save-dev prettier prettier-plugin-blade prettier-plugin-tailwindcss
+```
+
+## Step 5: Open Your Laravel Project in PhpStorm
+
+Open PhpStorm and select the Laravel project that has been set up with Laravel Pint and Prettier. Prepare yourself to enhance development efficiency.
+
+![Open Your Laravel Project in PhpStorm](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-1.webp?updatedAt=1705636725350)
+
+## Step 6: Configure *.prettierrc* for Code Compliance
+
+Create a file named `.prettierrc` in the root of your project and add the following configuration:
+
+```json
+{
+    "plugins": ["prettier-plugin-blade", "prettier-plugin-tailwindcss"],
+    "overrides": [
+        {
+            "files": ["*.blade.php"],
+            "options": {
+                "parser": "blade"
+            }
+        }
+    ]
+}
+```
+
+Save the file to ensure code format consistency according to your project's needs.
+
+## Step 7: Open PhpStorm Settings
+
+Go to PhpStorm settings using the keyboard shortcut `Cmd + ,` on your Mac. This step ensures quick and efficient access to settings.
+
+## Step 8: Find *Action on Save* in the *Tools* Tab
+
+Use the search feature at the top to locate *Action on Save*. It's found in the *Tools > Action on Save* tab. This is a crucial step for configuring actions to be executed every time you save.
+
+![Find Action on Save in Tools Tab](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-2.webp?updatedAt=1705636725350)
+
+## Step 9: Configure *Reformat Code* and *File Watcher*
+
+Check *Reformat code* and select *All file types*. Uncheck `PHP` because we want Laravel Pint to handle the formatter, and leave `Blade` checked.
+
+![Reformat code in PhpStorm](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-3.webp?updatedAt=1705636725350)
+
+In the *File Watcher* section, click *Configure*, then *Add Custom*. Follow the configuration below:
+
+```md
+- Name: Pint
+- File Type: PHP
+- Program: $ProjectFileDir$/vendor/bin/pint
+- Arguments: $FileRelativePath$
+- Output paths to refresh: $FileRelativePath$
+- Working directory: $ProjectFileDir$
+- Uncheck "Auto-save"
+```
+
+![File Watcher di PhpStorm](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-4.webp?updatedAt=1705636725350)
+
+![File Watcher di PhpStorm](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-5.webp?updatedAt=1705636725350)
+
+After following the configuration, check *File Watcher* to enable file monitoring.
+
+## Step 10: Enable *Run Prettier* with Automatic Configuration
+
+- Check *Run Prettier* and choose *Automatic Prettier configuration*.
+
+![Enable Prettier](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-6.webp?updatedAt=1705636725350)
+
+- Select *Run for files* and add the file blade.php.
+
+![Enable blade in Prettier](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-7.webp?updatedAt=1705636725350)
+
+- Before saving, ensure the Prettier version appears. Click *Ok* to save all configurations.
+
+![Enable blade in Prettier](https://ik.imagekit.io/n1hqrcegw/articles/boost-productivity-phpstorm-laravel-pint-prettier-setup/Screenshot-8.webp?updatedAt=1705636725350)
+
+By following these steps, you will optimize your PhpStorm to work seamlessly with Laravel Pint and Prettier. This setup ensures that every time you save, your code not only looks tidy but also adheres to Laravel standards and the Prettier configuration you have specified. Happy coding!
