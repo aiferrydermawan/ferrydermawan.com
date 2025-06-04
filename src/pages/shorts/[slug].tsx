@@ -30,7 +30,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
 };
 
-export default function ShortsPost({ post }: { post: any }) {
+type BlogPostProps = {
+    post: {
+        meta: {
+            title: string;
+            description: string;
+            date: string;
+            tags: string[];
+        };
+        contentHtml: string;
+    };
+};
+
+export default function BlogPost({ post }: BlogPostProps) {
     return (
         <Layout>
             <Head>

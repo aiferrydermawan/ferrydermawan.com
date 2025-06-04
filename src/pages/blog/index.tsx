@@ -8,7 +8,17 @@ export async function getStaticProps() {
     return { props: { posts } };
 }
 
-export default function BlogIndex({ posts }: { posts: any[] }) {
+type Post = {
+    slug: string;
+    meta: {
+        title: string;
+        description: string;
+        date: string;
+        tags: string[];
+    };
+};
+
+export default function BlogIndex({ posts }: { posts: Post[] }) {
     return (
         <Layout>
             <Head>
