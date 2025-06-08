@@ -5,7 +5,7 @@ export default function About() {
     return (
         <Layout>
             <Head>
-                <title>About | My Website</title>
+                <title>About | Ferry Dermawan</title>
                 <meta name="description" content="Kumpulan artikel menarik tentang teknologi, coding, dan lainnya." />
             </Head>
             <main>

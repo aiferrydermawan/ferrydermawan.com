@@ -5,7 +5,7 @@ export default function Projects() {
     return (
         <Layout>
             <Head>
-                <title>Projects | My Website</title>
+                <title>Projects | Ferry Dermawan</title>
                 <meta name="description" content="Kumpulan artikel menarik tentang teknologi, coding, dan lainnya." />
             </Head>
             <main>

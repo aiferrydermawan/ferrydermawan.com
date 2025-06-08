@@ -2,6 +2,7 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import Layout from "@/components/layout";
+import Head from "next/head";
 
 type Props = {
     blogPosts: {
@@ -29,6 +30,9 @@ export const getStaticProps: GetStaticProps = async () => {
 export default function Home({ blogPosts, shortPosts }: Props) {
     return (
         <Layout>
+            <Head>
+                <title>Ferry Dermawan</title>
+            </Head>
             <header>
                 <h1 className="font-medium">Ferry Dermawan</h1>
                 <p className=" mt-5 text-gray-600">

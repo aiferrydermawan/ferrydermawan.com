@@ -45,7 +45,7 @@ export default function BlogPost({ post }: BlogPostProps) {
     return (
         <Layout>
             <Head>
-                <title>{`${post.meta.title} | Blog`}</title>
+                <title>{`${post.meta.title} | Ferry Dermawan`}</title>
                 <meta name="description" content={post.meta.description} />
             </Head>
             <article className="prose max-w-screen-sm mx-auto">
