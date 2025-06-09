@@ -41,21 +41,21 @@ export default function Home({ blogPosts, shortPosts }: Props) {
             </header>
 
             <main>
-                {/*<section>*/}
-                {/*    <h2 className="font-medium mt-12">Blog</h2>*/}
-                {/*    <ul className="mt-3 list-disc list-outside space-y-2 pl-4">*/}
-                {/*        {blogPosts.map((post) => (*/}
-                {/*            <li className="pl-2" key={post.slug}>*/}
-                {/*                <Link*/}
-                {/*                    href={`/blog/${post.slug}`}*/}
-                {/*                    className="text-blue-500 hover:text-blue-700"*/}
-                {/*                >*/}
-                {/*                    {post.meta.title}*/}
-                {/*                </Link>*/}
-                {/*            </li>*/}
-                {/*        ))}*/}
-                {/*    </ul>*/}
-                {/*</section>*/}
+                <section>
+                    <h2 className="font-medium mt-12">Blog</h2>
+                    <ul className="mt-3 list-disc list-outside space-y-2 pl-4">
+                        {blogPosts.map((post) => (
+                            <li className="pl-2" key={post.slug}>
+                                <Link
+                                    href="#"
+                                    className="text-blue-500 hover:text-blue-700"
+                                >
+                                    {post.meta.title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
 
                 <section>
                     <h2 className="font-medium mt-12">Shorts</h2>
