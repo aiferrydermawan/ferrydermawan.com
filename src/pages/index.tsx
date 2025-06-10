@@ -47,7 +47,7 @@ export default function Home({ blogPosts, shortPosts }: Props) {
                         {blogPosts.map((post) => (
                             <li className="pl-2" key={post.slug}>
                                 <Link
-                                    href="#"
+                                    href={`/blog/${post.slug}`}
                                     className="text-blue-500 hover:text-blue-700"
                                 >
                                     {post.meta.title}
