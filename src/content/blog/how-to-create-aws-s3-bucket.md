@@ -29,9 +29,9 @@ After logging in, search for **S3** in the search bar at the top and click the *
 
 ## Step 3: Create a New Bucket
 
-Click the **Create bucket** button.  
-Enter a unique **Bucket name** (must be globally unique).  
-Under **Object Ownership**, choose **ACLs disabled (recommended)** to simplify permissions.
+- Click the **Create bucket** button.  
+- Enter a unique **Bucket name** (must be globally unique).  
+- Under **Object Ownership**, choose **ACLs disabled (recommended)** to simplify permissions.
 
 ![image 3](https://ik.imagekit.io/n1hqrcegw/articles/cara-membuat-amazon-s3-bucket-di-aws/gambar-03.webp?updatedAt=1733887150760)
 
@@ -39,9 +39,9 @@ Under **Object Ownership**, choose **ACLs disabled (recommended)** to simplify p
 
 ## Step 4: Configure Encryption
 
-Scroll down to the **Default encryption** section.  
-Choose **Amazon S3 managed keys (SSE-S3)**.  
-Enable the **Bucket Key** to reduce the cost of encryption requests.
+- Scroll down to the **Default encryption** section.  
+- Choose **Amazon S3 managed keys (SSE-S3)**.  
+- Enable the **Bucket Key** to reduce the cost of encryption requests.
 
 ![image 4](https://ik.imagekit.io/n1hqrcegw/articles/cara-membuat-amazon-s3-bucket-di-aws/gambar-04.webp?updatedAt=1733887150760)
 
