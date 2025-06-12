@@ -9,13 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
-    "remark-html": "^16.0.1"
+    "remark-html": "^16.0.1",
+    "sitemap": "^8.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

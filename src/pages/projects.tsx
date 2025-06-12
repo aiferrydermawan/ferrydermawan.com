@@ -11,7 +11,7 @@ export default function Projects() {
             <main>
                 <section>
                     <h1 className="font-medium">Projects</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam amet aspernatur deserunt harum non nostrum omnis sit tempore ut!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adip isicing elit. Accusantium aliquam amet aspernatur deserunt harum non nostrum omnis sit tempore ut!</p>
                 </section>
             </main>
         </Layout>
