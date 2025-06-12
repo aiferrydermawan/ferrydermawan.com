@@ -6,7 +6,7 @@ export default function About() {
         <Layout>
             <Head>
                 <title>About | Ferry Dermawan</title>
-                <meta name="description" content="Kumpulan artikel menarik tentang teknologi, coding, dan lainnya." />
+                <meta name="description" content="Learn more about the person behind this blog. Our story, mission, and passion for sharing knowledge in IT and programming." />
             </Head>
             <main>
                 <section>

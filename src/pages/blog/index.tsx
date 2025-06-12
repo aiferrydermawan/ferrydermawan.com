@@ -23,7 +23,7 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
         <Layout>
             <Head>
                 <title>Blog | Ferry Dermawan</title>
-                <meta name="description" content="Kumpulan artikel menarik tentang teknologi, coding, dan lainnya." />
+                <meta name="description" content="KExplore in-depth articles on IT, coding, and software development. Stay informed with insights and practical solutions from the programming world." />
             </Head>
             <main>
                 <section>

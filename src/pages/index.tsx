@@ -32,6 +32,7 @@ export default function Home({ blogPosts, shortPosts }: Props) {
         <Layout>
             <Head>
                 <title>Ferry Dermawan</title>
+                <meta name="description" content="Welcome to our IT and programming blog! Discover articles, tips, and tutorials on technology, software development, and the latest digital trends." />
             </Head>
             <header>
                 <h1 className="font-medium">Ferry Dermawan</h1>

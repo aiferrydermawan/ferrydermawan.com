@@ -23,7 +23,7 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
         <Layout>
             <Head>
                 <title>Shorts | Ferry Dermawan</title>
-                <meta name="description" content="Kumpulan artikel menarik tentang teknologi, coding, dan lainnya." />
+                <meta name="description" content="Shorts: Quick, bite-sized content on IT and programming. Perfect for learning in short bursts and staying sharp on the go." />
             </Head>
             <main>
                 <section>

@@ -6,7 +6,7 @@ export default function Projects() {
         <Layout>
             <Head>
                 <title>Projects | Ferry Dermawan</title>
-                <meta name="description" content="Kumpulan artikel menarik tentang teknologi, coding, dan lainnya." />
+                <meta name="description" content="Explore IT and software projects we've built and contributed to. From open-source tools to personal experiments and community-driven work." />
             </Head>
             <main>
                 <section>
