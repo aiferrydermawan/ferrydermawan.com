@@ -23,9 +23,6 @@ export const generateSitemap = async () => {
     const blogPosts = getAllPosts('blog');
     const shortsPosts = getAllPosts('shorts');
 
-    // Gabungkan post blog dan shorts
-    const allPosts = [...blogPosts, ...shortsPosts];
-
     // 3. Masukkan URL setiap artikel blog ke dalam sitemap
     blogPosts.forEach(post => {
         sitemap.write({
