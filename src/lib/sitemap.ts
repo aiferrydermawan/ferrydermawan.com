@@ -26,10 +26,20 @@ export const generateSitemap = async () => {
     // Gabungkan post blog dan shorts
     const allPosts = [...blogPosts, ...shortsPosts];
 
-    // Masukkan URL setiap artikel ke dalam sitemap
-    allPosts.forEach(post => {
+    // 3. Masukkan URL setiap artikel blog ke dalam sitemap
+    blogPosts.forEach(post => {
         sitemap.write({
             url: `/blog/${post.slug}`,
+            lastmod: format(new Date(post.meta.date), 'yyyy-MM-dd'),
+            changefreq: 'monthly',
+            priority: 0.7,
+        });
+    });
+
+    // 4. Masukkan URL setiap artikel shorts ke dalam sitemap
+    shortsPosts.forEach(post => {
+        sitemap.write({
+            url: `/shorts/${post.slug}`,
             lastmod: format(new Date(post.meta.date), 'yyyy-MM-dd'),
             changefreq: 'monthly',
             priority: 0.7,
@@ -39,7 +49,7 @@ export const generateSitemap = async () => {
     // Akhiri penulisan
     sitemap.end();
 
-    // 3. Buat dan simpan sitemap.xml
+    // 5. Buat dan simpan sitemap.xml
     const sitemapXML = await streamToPromise(sitemap).then(sm => sm.toString());
 
     // Simpan sitemap ke dalam folder public
