@@ -7,7 +7,7 @@ export default function Navbar() {
                 <Link href="/" className="text-gray-700 hover:text-black">Home</Link>
                 <Link href="/blog" className="text-gray-700 hover:text-black">Blog</Link>
                 <Link href="/shorts" className="text-gray-700 hover:text-black">Shorts</Link>
-                <Link href="/projects" className="text-gray-700 hover:text-black">Projects</Link>
+                {/*<Link href="/projects" className="text-gray-700 hover:text-black">Projects</Link>*/}
             </div>
         </nav>
     );
