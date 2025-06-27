@@ -2,7 +2,7 @@
 title: "How to Secure Nginx with SSL/TLS HTTPS Using Let’s Encrypt on Ubuntu"
 description: "Learn how to secure your Nginx server with free SSL/TLS certificates from Let’s Encrypt on Ubuntu. Follow this guide to enable HTTPS and protect your website."
 date: "2025-05-09"
-tags: ["ubuntu"]
+tags: ["ubuntu", "devops"]
 ---
 
 Enabling HTTPS on your website is crucial for security, SEO, and user trust. Thankfully, Let’s Encrypt offers free SSL/TLS certificates that are easy to set up on an Nginx server. In this tutorial, we’ll walk through how to secure your Nginx server using Let’s Encrypt on Ubuntu.

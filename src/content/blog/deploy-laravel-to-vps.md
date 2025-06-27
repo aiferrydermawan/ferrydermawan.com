@@ -2,7 +2,7 @@
 title: "How to Deploy a Laravel Application to a VPS: Complete Step-by-Step Guide"
 description: "Learn how to deploy your Laravel app to a VPS server. This complete guide walks you through server setup, file transfer, environment config, and web access."
 date: "2025-01-09"
-tags: ["laravel", "ubuntu"]
+tags: ["laravel", "ubuntu", "devops"]
 ---
 
 Deploying your Laravel application to a VPS gives you full control over your environment, performance, and security. In this guide, you'll learn how to deploy Laravel from GitHub to a VPS using the LEMP stack (Linux, Nginx, MySQL, PHP).

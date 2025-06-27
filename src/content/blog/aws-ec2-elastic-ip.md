@@ -2,7 +2,7 @@
 title: "How to Use Elastic IP Address with AWS EC2 Instance: Complete Guide"
 description: "This guide explains how to assign and manage an Elastic IP address for your AWS EC2 instance. Ensure consistent public IP access for your cloud server with ease."
 date: "2025-04-09"
-tags: ["aws"]
+tags: ["aws", "devops"]
 ---
 
 When launching an EC2 instance, the public IP address assigned to it can change if the instance is stopped and restarted. To avoid this, AWS provides **Elastic IP addresses**—a static IPv4 address designed for dynamic cloud computing.

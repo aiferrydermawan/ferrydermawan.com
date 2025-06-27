@@ -2,7 +2,7 @@
 title: "How to Create an AWS EC2 Instance: Beginner’s Guide to Cloud Hosting"
 description: "Step-by-step guide to create an AWS EC2 instance for cloud hosting. Learn how to launch, configure, and access your virtual server on Amazon Web Services."
 date: "2024-12-09"
-tags: ["aws"]
+tags: ["aws", "devops"]
 ---
 
 Amazon EC2 (Elastic Compute Cloud) lets you run virtual servers in the cloud. In this beginner-friendly guide, you’ll learn how to launch your first EC2 instance on AWS using Ubuntu and Free Tier resources.

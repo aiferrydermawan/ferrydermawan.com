@@ -2,7 +2,7 @@
 title: "How to Point Your Domain to AWS Route 53 Name Servers"
 description: "Learn how to move your domain's name servers to AWS Route 53. This guide walks you through the steps to manage DNS and route traffic using Amazon Route 53."
 date: "2025-03-09"
-tags: ["aws"]
+tags: ["aws", "devops"]
 ---
 
 If you're hosting a website or application on AWS, using Amazon Route 53 as your DNS provider gives you full control over routing traffic. In this guide, you'll learn how to move your domain's name servers to Route 53.

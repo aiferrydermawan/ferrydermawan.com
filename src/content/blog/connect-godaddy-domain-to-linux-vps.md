@@ -2,7 +2,7 @@
 title: "How to Connect a GoDaddy Domain to a Linux VPS Server"
 description: "Discover how to point your GoDaddy domain to a Linux VPS. This step-by-step guide covers DNS setup and server configuration to link your domain to your VPS."
 date: "2025-02-09"
-tags: ["ubuntu"]
+tags: ["ubuntu", "devops"]
 ---
 
 If you’ve purchased a domain on GoDaddy and host your application on a VPS, pointing your domain to your server allows users to access your website easily. This guide shows you how to connect a GoDaddy domain to a Linux VPS (using Nginx as the web server).

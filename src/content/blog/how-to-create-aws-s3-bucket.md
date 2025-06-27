@@ -2,7 +2,7 @@
 title: "How to Create an AWS S3 Bucket: Step-by-Step Guide for Beginners"
 description: "Learn how to create an AWS S3 bucket from scratch. This beginner-friendly guide walks you through each step to set up Amazon S3 storage for your cloud projects."
 date: "2025-06-09"
-tags: ["aws"]
+tags: ["aws", "devops"]
 ---
 
 Amazon S3 (Simple Storage Service) is a popular cloud storage service from AWS that allows users to store and retrieve any amount of data at any time. Whether you're hosting static websites, storing backups, or serving media content, S3 is a reliable and scalable solution.
