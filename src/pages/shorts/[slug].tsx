@@ -5,6 +5,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import gfm from 'remark-gfm';
 import Layout from "@/components/layout";
+import Link from "next/link";
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getAllPosts('shorts');
@@ -60,6 +61,11 @@ export default function BlogPost({ post }: BlogPostProps) {
                 <p>Tags: {post.meta.tags.length > 0 ? post.meta.tags.join(', ') : 'No tags'}</p>
                 <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
             </article>
+            <section className="prose max-w-screen-sm mx-auto border rounded-xl p-5 border-gray-400 dark:border-gray-300">
+                <p>Thank you for reading this article all the way through.</p>
+                <p>If you found this content useful and would like to support me in creating more, you can donate. Your contribution is vital to keeping this blog running.</p>
+                <Link href="/donate">Donate here</Link>
+            </section>
         </Layout>
     );
 }
