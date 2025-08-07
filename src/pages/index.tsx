@@ -37,7 +37,7 @@ export default function Home({ blogPosts, shortPosts }: Props) {
             <header>
                 <h1 className="font-medium text-gray-900 dark:text-gray-100">Ferry Dermawan</h1>
                 <p className="mt-5 text-gray-600 dark:text-gray-400">
-                    Hi! I'm Ferry Dermawan, a Fullstack Engineer. This blog shares notes, tutorials, and tech topics around PHP, Laravel, JavaScript, and DevOps — all based on things I encounter in my daily work.
+                    Hi! I&apos;m Ferry Dermawan, a Fullstack Engineer. This blog shares notes, tutorials, and tech topics around PHP, Laravel, JavaScript, and DevOps — all based on things I encounter in my daily work.
                 </p>
             </header>
 
