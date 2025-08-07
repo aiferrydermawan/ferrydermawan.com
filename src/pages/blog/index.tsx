@@ -50,7 +50,7 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
             </Head>
 
             <main className="max-w-4xl mx-auto">
-                <h1 className="font-medium">Blog</h1>
+                <h1 className="font-medium text-gray-900 dark:text-gray-100">Blog</h1>
 
                 <div className="mt-5">
                     <div className="flex flex-wrap gap-2">
@@ -58,7 +58,11 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
                             <button
                                 key={tag}
                                 onClick={() => toggleTag(tag)}
-                                className={`px-2 py-0.5 rounded-full text-xs border ${activeTags.includes(tag) ? 'bg-blue-500 text-white' : 'bg-gray-100'}`}
+                                className={`px-2 py-0.5 rounded-full text-xs border transition-colors ${
+                                    activeTags.includes(tag) 
+                                        ? 'bg-blue-500 text-white border-blue-500' 
+                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                }`}
                             >
                                 #{tag}
                             </button>
@@ -69,14 +73,19 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
                 <ul className="mt-3 list-outside space-y-6">
                     {filteredPosts.map((post) => (
                         <li key={post.slug} className="flex flex-col">
-                            <time className="text-sm text-gray-600">{new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(post.meta.date))}</time>
-                            <Link href={`/blog/${post.slug}`} className="text-blue-500 hover:text-blue-700 mt-2">
+                            <time className="text-sm text-gray-600 dark:text-gray-400">
+                                {new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(post.meta.date))}
+                            </time>
+                            <Link 
+                                href={`/blog/${post.slug}`} 
+                                className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 mt-2 transition-colors"
+                            >
                                 {post.meta.title}
                             </Link>
-                            <p className="text-sm text-gray-600 line-clamp-1">{post.meta.description}</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-1">{post.meta.description}</p>
                             <div className="flex flex-wrap gap-1 mt-4">
                                 {post.meta.tags.map(tag => (
-                                    <span key={tag} className="text-xs bg-gray-200 px-2 py-0.5 rounded">
+                                    <span key={tag} className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded">
                                         #{tag}
                                     </span>
                                 ))}

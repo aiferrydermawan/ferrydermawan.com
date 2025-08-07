@@ -24,11 +24,11 @@ export default function Donate() {
             </Head>
             <main>
                 <section>
-                    <h1 className="font-medium">Donate</h1>
+                    <h1 className="font-medium text-gray-900 dark:text-gray-100">Donate</h1>
                     <ul className="mt-3 list-disc list-outside space-y-2 pl-4">
                         {donates.map((donate, index) => (
                             <li className="pl-2" key={index}>
-                                <a className="text-blue-500 hover:text-blue-700" target="_blank" href={donate.url}>{donate.title}</a>
+                                <a className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors" target="_blank" href={donate.url}>{donate.title}</a>
                             </li>
                         ))}
                     </ul>

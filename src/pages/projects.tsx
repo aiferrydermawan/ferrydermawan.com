@@ -10,8 +10,8 @@ export default function Projects() {
             </Head>
             <main>
                 <section>
-                    <h1 className="font-medium">Projects</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adip isicing elit. Accusantium aliquam amet aspernatur deserunt harum non nostrum omnis sit tempore ut!</p>
+                    <h1 className="font-medium text-gray-900 dark:text-gray-100">Projects</h1>
+                    <p className="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adip isicing elit. Accusantium aliquam amet aspernatur deserunt harum non nostrum omnis sit tempore ut!</p>
                 </section>
             </main>
         </Layout>

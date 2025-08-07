@@ -1,2 +1,36 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* Dark mode variant for Tailwind CSS v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Dark mode support */
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Set background for html and body */
+html {
+  background-color: white;
+}
+
+html.dark {
+  background-color: #111827; /* gray-900 */
+}
+
+body {
+  background-color: white;
+}
+
+html.dark body {
+  background-color: #111827; /* gray-900 */
+}
+
+/* Ensure smooth transitions for theme changes */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}

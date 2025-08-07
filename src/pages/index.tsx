@@ -35,21 +35,21 @@ export default function Home({ blogPosts, shortPosts }: Props) {
                 <meta name="description" content="Welcome to our IT and programming blog! Discover articles, tips, and tutorials on technology, software development, and the latest digital trends." />
             </Head>
             <header>
-                <h1 className="font-medium">Ferry Dermawan</h1>
-                <p className=" mt-5 text-gray-600">
-                    Hi! I’m Ferry Dermawan, a Fullstack Engineer. This blog shares notes, tutorials, and tech topics around PHP, Laravel, JavaScript, and DevOps — all based on things I encounter in my daily work.
+                <h1 className="font-medium text-gray-900 dark:text-gray-100">Ferry Dermawan</h1>
+                <p className="mt-5 text-gray-600 dark:text-gray-400">
+                    Hi! I'm Ferry Dermawan, a Fullstack Engineer. This blog shares notes, tutorials, and tech topics around PHP, Laravel, JavaScript, and DevOps — all based on things I encounter in my daily work.
                 </p>
             </header>
 
             <main>
                 <section>
-                    <h2 className="font-medium mt-12">Blog</h2>
+                    <h2 className="font-medium mt-12 text-gray-900 dark:text-gray-100">Blog</h2>
                     <ul className="mt-3 list-disc list-outside space-y-2 pl-4">
                         {blogPosts.map((post) => (
                             <li className="pl-2" key={post.slug}>
                                 <Link
                                     href={`/blog/${post.slug}`}
-                                    className="text-blue-500 hover:text-blue-700"
+                                    className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                                 >
                                     {post.meta.title}
                                 </Link>
@@ -59,13 +59,13 @@ export default function Home({ blogPosts, shortPosts }: Props) {
                 </section>
 
                 <section>
-                    <h2 className="font-medium mt-12">Shorts</h2>
+                    <h2 className="font-medium mt-12 text-gray-900 dark:text-gray-100">Shorts</h2>
                     <ul className="mt-3 list-disc list-outside space-y-2 pl-4">
                         {shortPosts.map((post) => (
                             <li className="pl-2" key={post.slug}>
                                 <Link
                                     href={`/shorts/${post.slug}`}
-                                    className="text-blue-500 hover:text-blue-700"
+                                    className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                                 >
                                     {post.meta.title}
                                 </Link>
