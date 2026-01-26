@@ -9,7 +9,17 @@ export const generateSitemap = async () => {
     const sitemap = new SitemapStream({ hostname: 'https://ferrydermawan.com' }); // Ganti dengan hostname website kamu
 
     // 1. Masukkan URL halaman statis ke dalam sitemap utama
-    const staticPages = ['/about', '/blog', '/shorts', '/projects', '/donate','/contact'];
+    const staticPages = [
+        '/', // Home page
+        '/about',
+        '/blog',
+        '/shorts',
+        '/projects',
+        '/donate',
+        '/contact',
+        '/privacy',
+        '/terms'
+    ];
 
     staticPages.forEach(page => {
         sitemap.write({

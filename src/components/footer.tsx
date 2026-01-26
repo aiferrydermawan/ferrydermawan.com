@@ -8,6 +8,8 @@ export default function Footer() {
                     <Link href="/about">About</Link>
                     <Link href="/contact">Contact</Link>
                     <Link href="/donate">Donate</Link>
+                    <Link href="/privacy">Privacy</Link>
+                    <Link href="/terms">Terms</Link>
                 </div>
                 <p>© {new Date().getFullYear()} Ferry Dermawan. All rights reserved.</p>
         </footer>
