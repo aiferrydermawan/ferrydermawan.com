@@ -8,6 +8,7 @@ import Layout from "@/components/layout";
 import Link from "next/link";
 import Giscus from "@/components/giscus";
 import { giscusConfig } from "@/lib/giscus-config";
+import { AdSenseRectangle } from "@/components/AdSense";
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getAllPosts('shorts');
@@ -63,6 +64,10 @@ export default function BlogPost({ post }: BlogPostProps) {
                 <p>Tags: {post.meta.tags.length > 0 ? post.meta.tags.join(', ') : 'No tags'}</p>
                 <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
             </article>
+            
+            {/* Ad after article content */}
+            <AdSenseRectangle className="max-w-screen-sm mx-auto" />
+            
             <section className="prose dark:prose-invert max-w-screen-sm mx-auto border rounded-xl p-5 border-gray-400 dark:border-gray-300">
                 <p>Thank you for reading this article all the way through.</p>
                 <p>If you found this content useful and would like to support me in creating more, you can donate. Your contribution is vital to keeping this blog running.</p>

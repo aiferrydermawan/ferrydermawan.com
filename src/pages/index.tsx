@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import Layout from "@/components/layout";
 import Head from "next/head";
+import { AdSenseRectangle } from "@/components/AdSense";
 
 type Props = {
     blogPosts: {
@@ -57,6 +58,9 @@ export default function Home({ blogPosts, shortPosts }: Props) {
                         ))}
                     </ul>
                 </section>
+
+                {/* Ad between sections */}
+                <AdSenseRectangle className="max-w-screen-sm mx-auto" />
 
                 <section>
                     <h2 className="font-medium mt-12 text-gray-900 dark:text-gray-100">Shorts</h2>

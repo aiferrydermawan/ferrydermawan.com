@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import Head from "next/head";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import ThemeScript from "@/components/ThemeScript";
+import { AdSenseBanner } from "@/components/AdSense";
 
 type LayoutProps = {
     children: React.ReactNode;
@@ -18,6 +19,7 @@ function Layout({ children}: LayoutProps) {
                     <script defer src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL} data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}></script>
                 </Head>
                 <Navbar />
+                <AdSenseBanner className="mt-4" />
                 <div className="py-16">
                     {children}
                 </div>
