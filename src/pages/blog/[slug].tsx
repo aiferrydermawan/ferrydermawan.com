@@ -7,7 +7,7 @@ import Layout from "@/components/layout";
 import Link from "next/link";
 import Giscus from "@/components/giscus";
 import { giscusConfig } from "@/lib/giscus-config";
-import { AdSenseInArticle, AdSenseRectangle } from "@/components/AdSense";
+import { AdSenseSeamless, AdSenseRectangle } from "@/components/AdSense";
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const posts = getAllPosts('blog');
@@ -64,20 +64,26 @@ export default function BlogPost({ post }: BlogPostProps) {
                 <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
             </article>
             
+            {/* Divider */}
+            <div className="my-12 border-t border-gray-200 dark:border-gray-700"></div>
+            
             {/* Ad after article content */}
             <AdSenseRectangle className="max-w-screen-sm mx-auto" />
             
-            <section className="prose dark:prose-invert max-w-screen-sm mx-auto border rounded-xl p-5 border-gray-400 dark:border-gray-300">
+            <section className="prose dark:prose-invert max-w-screen-sm mx-auto border rounded-xl p-5 border-gray-400 dark:border-gray-300 mt-8">
                 <p>Thank you for reading this article all the way through.</p>
                 <p>If you found this content useful and would like to support me in creating more, you can donate. Your contribution is vital to keeping this blog running.</p>
                 <Link href="/donate">Donate here</Link>
             </section>
             
-            {/* Ad before comments */}
-            <AdSenseInArticle className="max-w-screen-sm mx-auto" />
+            {/* Divider */}
+            <div className="my-12 border-t border-gray-200 dark:border-gray-700"></div>
+            
+            {/* Ad before comments - seamless for better UX */}
+            <AdSenseSeamless className="max-w-screen-sm mx-auto" />
             
             {/* Comments Section */}
-            <section className="max-w-screen-sm mx-auto mt-8">
+            <section className="max-w-screen-sm mx-auto mt-12">
                 <h2 className="text-2xl font-bold mb-4">Comments</h2>
                 <Giscus {...giscusConfig} />
             </section>
