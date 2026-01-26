@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from "@/components/layout";
+import Link from "next/link";
 
 export default function Privacy() {
     return (
@@ -16,7 +17,7 @@ export default function Privacy() {
                         
                         <h2>Introduction</h2>
                         <p>
-                            This Privacy Policy describes how ferrydermawan.com ("we", "our", or "us") collects, uses, and protects your personal information when you visit our website.
+                            This Privacy Policy describes how ferrydermawan.com (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) collects, uses, and protects your personal information when you visit our website.
                         </p>
 
                         <h2>Information We Collect</h2>
@@ -59,7 +60,7 @@ export default function Privacy() {
 
                         <h3>Comments</h3>
                         <p>
-                            Comments on this website are handled by Giscus, which uses GitHub Discussions. When you comment, you are subject to GitHub's privacy policy. Please review <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a> for more information.
+                            Comments on this website are handled by Giscus, which uses GitHub Discussions. When you comment, you are subject to GitHub&apos;s privacy policy. Please review <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub&apos;s Privacy Statement</a> for more information.
                         </p>
 
                         <h2>Cookies</h2>
@@ -89,22 +90,22 @@ export default function Privacy() {
                             <li>Request data portability</li>
                         </ul>
                         <p>
-                            To exercise these rights, please contact us through our <a href="/contact">contact page</a>.
+                            To exercise these rights, please contact us through our <Link href="/contact">contact page</Link>.
                         </p>
 
-                        <h2>Children's Privacy</h2>
+                        <h2>Children&apos;s Privacy</h2>
                         <p>
                             Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.
                         </p>
 
                         <h2>Changes to This Privacy Policy</h2>
                         <p>
-                            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+                            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.
                         </p>
 
                         <h2>Contact Us</h2>
                         <p>
-                            If you have any questions about this Privacy Policy, please contact us through our <a href="/contact">contact page</a>.
+                            If you have any questions about this Privacy Policy, please contact us through our <Link href="/contact">contact page</Link>.
                         </p>
                     </article>
                 </section>

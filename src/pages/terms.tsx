@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout from "@/components/layout";
+import Link from "next/link";
 
 export default function Terms() {
     return (
@@ -16,7 +17,7 @@ export default function Terms() {
                         
                         <h2>Agreement to Terms</h2>
                         <p>
-                            By accessing and using ferrydermawan.com ("the Website"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms of Service, please do not use the Website.
+                            By accessing and using ferrydermawan.com (&quot;the Website&quot;), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms of Service, please do not use the Website.
                         </p>
 
                         <h2>Use License</h2>
@@ -28,7 +29,7 @@ export default function Terms() {
                             <li>Use the materials for any commercial purpose or for any public display</li>
                             <li>Attempt to reverse engineer any software contained on the Website</li>
                             <li>Remove any copyright or other proprietary notations from the materials</li>
-                            <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+                            <li>Transfer the materials to another person or &quot;mirror&quot; the materials on any other server</li>
                         </ul>
 
                         <h2>Content</h2>
@@ -54,7 +55,7 @@ export default function Terms() {
 
                         <h2>Disclaimer</h2>
                         <p>
-                            The materials on the Website are provided on an "as is" basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                            The materials on the Website are provided on an &quot;as is&quot; basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
                         </p>
                         <p>
                             Further, we do not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on the Website or otherwise relating to such materials or on any sites linked to this Website.
@@ -72,7 +73,7 @@ export default function Terms() {
 
                         <h2>Links</h2>
                         <p>
-                            We have not reviewed all of the sites linked to our Website and are not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by us. Use of any such linked website is at the user's own risk.
+                            We have not reviewed all of the sites linked to our Website and are not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by us. Use of any such linked website is at the user&apos;s own risk.
                         </p>
 
                         <h2>Modifications</h2>
@@ -87,7 +88,7 @@ export default function Terms() {
 
                         <h2>Contact Information</h2>
                         <p>
-                            If you have any questions about these Terms of Service, please contact us through our <a href="/contact">contact page</a>.
+                            If you have any questions about these Terms of Service, please contact us through our <Link href="/contact">contact page</Link>.
                         </p>
                     </article>
                 </section>
