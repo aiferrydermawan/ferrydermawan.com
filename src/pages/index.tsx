@@ -3,7 +3,6 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 import Layout from "@/components/layout";
 import Head from "next/head";
-import { AdSenseSeamless } from "@/components/AdSense";
 
 type Props = {
     blogPosts: {
@@ -58,15 +57,6 @@ export default function Home({ blogPosts, shortPosts }: Props) {
                         ))}
                     </ul>
                 </section>
-
-                {/* Divider */}
-                <div className="my-12 border-t border-gray-200 dark:border-gray-700"></div>
-
-                {/* Ad between sections - seamless for better UX */}
-                <AdSenseSeamless className="max-w-screen-sm mx-auto" />
-
-                {/* Divider */}
-                <div className="my-12 border-t border-gray-200 dark:border-gray-700"></div>
 
                 <section>
                     <h2 className="font-medium mt-12 text-gray-900 dark:text-gray-100">Shorts</h2>
