@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { getAllPosts, getPostBySlug } from '@/lib/posts';
 import { remark } from 'remark';
 import html from 'remark-html';
+import gfm from 'remark-gfm';
 import Layout from "@/components/layout";
 import Link from "next/link";
 import Giscus from "@/components/giscus";
@@ -19,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params?.slug as string;
     const post = getPostBySlug('blog', slug);
-    const processedContent = await remark().use(html).process(post.content);
+    const processedContent = await remark().use(gfm).use(html).process(post.content);
     const contentHtml = processedContent.toString();
 
     return {
