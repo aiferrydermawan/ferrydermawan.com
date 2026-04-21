@@ -111,9 +111,9 @@ chmod 644 ~/.ssh/github_englishnesia.pub ~/.ssh/github_studiku.pub
 ### 5. Add public keys in GitHub (twice, one per repo)
 
 ```bash
-echo "=== Pubkey untuk repo englishnesia ==="
+echo "=== Public key for englishnesia repo ==="
 cat ~/.ssh/github_englishnesia.pub
-echo "=== Pubkey untuk repo studiku ==="
+echo "=== Public key for studiku repo ==="
 cat ~/.ssh/github_studiku.pub
 ```
 
@@ -169,16 +169,16 @@ ssh -T github.com-studiku
 ```bash
 cd /var/www
 git clone --branch main --single-branch git@github.com-englishnesia:YOUR_USERNAME/englishnesia.git englishnesia.id
-git clone --branch dev --single-branch git@github.com-studiku:YOUR_USERNAME/studiku.git dev.englishnesia.id
+git clone --branch dev --single-branch git@github.com-studiku:YOUR_USERNAME/studiku.git dev.studiku.id
 ```
 
-With this setup, **englishnesia** is in `/var/www/englishnesia.id` (only `main`), and **studiku** is in `/var/www/dev.englishnesia.id` (only `dev`) based on your project naming convention, without storing PATs on the server.
+With this setup, **englishnesia** is in `/var/www/englishnesia.id` (only `main`), and **studiku** is in `/var/www/dev.studiku.id` (only `dev`) based on your project naming convention, without storing PATs on the server.
 
 ---
 
 ## How to manage `main` and `dev` branches (per repo)
 
-To keep deployments stable, use one working directory per main branch. This pattern makes rollback, auditing, and deployment automation much easier.
+Keep one working directory per target branch to make rollback and deployment automation safer:
 
 ```bash
 cd /var/www/englishnesia.id
@@ -187,57 +187,43 @@ git branch --show-current
 ```
 
 ```bash
-cd /var/www/dev.englishnesia.id
+cd /var/www/dev.studiku.id
 git branch --show-current
 # expected output: dev
 ```
 
-If one folder needs to switch branches later, run `git fetch origin` and then `git checkout <branch>`. For production, it is still safer to stay consistent: `englishnesia.id = main`, `dev.englishnesia.id = dev`.
+If you need another branch later, run `git fetch origin` and `git checkout <branch>` in that specific directory.
 
 ---
 
 ## Production security best practices on EC2
 
-### Restrict SSH access to the instance (Security Group)
+### Restrict SSH access in Security Group
 
-Avoid open SSH access from `0.0.0.0/0`; restrict access with static IPs, VPN, or Session Manager whenever possible.
+Avoid open SSH access from `0.0.0.0/0`; restrict SSH with office IPs, VPN, or Session Manager whenever possible.
 
-### Dedicated deployment user
+### Keep deploy keys read-only
 
-```bash
-sudo adduser deploy
-```
+Enable write access only when the server must push to GitHub. For pull-only deployments, read-only keys reduce risk significantly.
 
-Do not routinely clone as **root**.
+### Minimize PAT usage on servers
 
-### One key pair per repository
+If HTTPS is unavoidable, use a fine-grained PAT with minimum scope and short lifetime. For EC2 clone/pull workflows, prefer SSH deploy keys.
 
-For **two repos**, use **two** deploy keys (two key pairs), aligned with GitHub's limitation and a smaller *blast radius*.
+### Rotate and audit keys regularly
 
-### Read-only deploy key
+Remove old deploy keys that are no longer used, and review repository deploy key lists periodically.
 
-Enable write only if the server must **push** to GitHub.
+### Laravel writable directories permissions
 
-### Minimize PAT usage on the server
-
-If HTTPS is unavoidable, use a **fine-grained PAT** with minimum scope, but still prioritize SSH + deploy keys for cloning on EC2.
-
-### Safe permissions for projects without file uploads
-
-If your application does not need runtime upload/write access, keep source code **read-only** for the web server:
+For Laravel apps, avoid broad ownership changes on the whole project directory. It is usually enough to make only `storage` and `bootstrap/cache` writable:
 
 ```bash
-sudo chown -R deploy:www-data /var/www/englishnesia.id /var/www/dev.englishnesia.id
-sudo find /var/www/englishnesia.id /var/www/dev.englishnesia.id -type d -exec chmod 755 {} \;
-sudo find /var/www/englishnesia.id /var/www/dev.englishnesia.id -type f -exec chmod 644 {} \;
+sudo chown -R www-data:www-data storage bootstrap/cache
+sudo chmod -R 775 storage bootstrap/cache
 ```
 
-Key principles:
-
-* Directories `755`, files `644`
-* Avoid `777`
-* Do not grant write permissions to the web server user unless absolutely necessary
-* Sensitive files such as `.env` can be restricted further to `640`
+Run the command from each Laravel project root (for example `/var/www/englishnesia.id` and `/var/www/dev.englishnesia.id`).
 
 ## Conclusion
 
@@ -248,7 +234,7 @@ Key principles:
 ## Bonus: quick script — two repos (englishnesia & studiku)
 
 ```bash
-# Kunci repo 1 & 2
+# Create key pairs for repo 1 and repo 2
 ssh-keygen -t ed25519 -C "deploy-englishnesia" -f ~/.ssh/github_englishnesia -N ""
 ssh-keygen -t ed25519 -C "deploy-studiku" -f ~/.ssh/github_studiku -N ""
 
@@ -258,7 +244,7 @@ chmod 644 ~/.ssh/github_englishnesia.pub ~/.ssh/github_studiku.pub
 
 cat ~/.ssh/github_englishnesia.pub
 cat ~/.ssh/github_studiku.pub
-# Daftarkan masing-masing di Settings → Deploy keys repo yang sesuai
+# Register each public key in its matching repository Deploy keys settings
 
 cat >> ~/.ssh/config <<'EOF'
 Host github.com-englishnesia
@@ -281,12 +267,11 @@ ssh -T github.com-studiku
 
 cd /var/www
 git clone --branch main --single-branch git@github.com-englishnesia:YOUR_USERNAME/englishnesia.git englishnesia.id
-git clone --branch dev --single-branch git@github.com-studiku:YOUR_USERNAME/studiku.git dev.englishnesia.id
+git clone --branch dev --single-branch git@github.com-studiku:YOUR_USERNAME/studiku.git dev.studiku.id
 
-# Hardening permission (tanpa fitur upload file)
-sudo chown -R deploy:www-data /var/www/englishnesia.id /var/www/dev.englishnesia.id
-sudo find /var/www/englishnesia.id /var/www/dev.englishnesia.id -type d -exec chmod 755 {} \;
-sudo find /var/www/englishnesia.id /var/www/dev.englishnesia.id -type f -exec chmod 644 {} \;
+# Laravel writable directories (run inside each project root)
+cd /var/www/englishnesia.id && sudo chown -R www-data:www-data storage bootstrap/cache && sudo chmod -R 775 storage bootstrap/cache
+cd /var/www/dev.studiku.id && sudo chown -R www-data:www-data storage bootstrap/cache && sudo chmod -R 775 storage bootstrap/cache
 ```
 
 Deployment from repository to VPS can continue with a similar pattern in [deploy Laravel to VPS](/blog/deploy-laravel-to-vps) if your stack uses Laravel.

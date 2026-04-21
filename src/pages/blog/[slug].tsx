@@ -1,9 +1,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import { useEffect, useRef } from 'react';
 import { getAllPosts, getPostBySlug } from '@/lib/posts';
 import { remark } from 'remark';
-import html from 'remark-html';
 import gfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
 import Layout from "@/components/layout";
 import Link from "next/link";
 import Giscus from "@/components/giscus";
@@ -20,7 +23,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params?.slug as string;
     const post = getPostBySlug('blog', slug);
-    const processedContent = await remark().use(gfm).use(html).process(post.content);
+    const processedContent = await remark()
+        .use(gfm)
+        .use(remarkRehype)
+        .use(rehypeHighlight)
+        .use(rehypeStringify)
+        .process(post.content);
     const contentHtml = processedContent.toString();
 
     return {
@@ -46,6 +54,66 @@ type BlogPostProps = {
 };
 
 export default function BlogPost({ post }: BlogPostProps) {
+    const articleContentRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const container = articleContentRef.current;
+        if (!container) return;
+
+        const languageLabel = (className: string) => {
+            const match = className.match(/language-([a-z0-9+-]+)/i);
+            if (!match) return 'text';
+            return match[1].toLowerCase();
+        };
+
+        const preElements = container.querySelectorAll<HTMLPreElement>('pre');
+        preElements.forEach((pre) => {
+            if (pre.dataset.codeWindow === 'true') return;
+
+            const code = pre.querySelector('code');
+            if (!code) return;
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'code-window';
+
+            const header = document.createElement('div');
+            header.className = 'code-window__header';
+
+            const dots = document.createElement('span');
+            dots.className = 'code-window__dots';
+            dots.setAttribute('aria-hidden', 'true');
+
+            const title = document.createElement('span');
+            title.className = 'code-window__title';
+            title.textContent = languageLabel(code.className);
+
+            const copyButton = document.createElement('button');
+            copyButton.type = 'button';
+            copyButton.className = 'code-window__copy';
+            copyButton.textContent = 'Copy';
+            copyButton.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(code.textContent ?? '');
+                    copyButton.textContent = 'Copied';
+                    window.setTimeout(() => {
+                        copyButton.textContent = 'Copy';
+                    }, 1500);
+                } catch {
+                    copyButton.textContent = 'Failed';
+                    window.setTimeout(() => {
+                        copyButton.textContent = 'Copy';
+                    }, 1500);
+                }
+            });
+
+            header.append(dots, title, copyButton);
+
+            pre.parentElement?.insertBefore(wrapper, pre);
+            wrapper.append(header, pre);
+            pre.dataset.codeWindow = 'true';
+        });
+    }, [post.contentHtml]);
+
     return (
         <Layout>
             <Head>
@@ -61,7 +129,7 @@ export default function BlogPost({ post }: BlogPostProps) {
                 </time>
                 </p>
                 <p>Tags: {post.meta.tags.join(', ')}</p>
-                <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+                <div ref={articleContentRef} dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
             </article>
             
             <section className="prose dark:prose-invert max-w-screen-sm mx-auto border rounded-xl p-5 border-gray-400 dark:border-gray-300 mt-8">
